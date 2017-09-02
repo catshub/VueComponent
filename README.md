@@ -5,17 +5,23 @@
 1. 增加唤起按钮
 
 2. 评价框增加悬浮效果,部分效果优化
+
 ```
-![v1.1](src/img/v1.1-1.png) ![v1.1](src/img/v1.1-2.png)
+<figure>
+<img src="src/img/v1.1-1.png" height="400px">
+<img src="src/img/v1.1-2.png" height="400px">
+</figure>
 
 ---
+
 ### *v1.0 雏形阶段 2017/09/02*
+
 ```
 1. 本项目意在练习VUe单文件组件开发
 
 2. 纤维雏形阶段,实现基本界面与评价因素借接口
 ```
-![v1.1](src/img/v1.1-1.png)
+<img src="src/img/v1.1-2.png" height="400px">
 
 ---
 
