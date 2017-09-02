@@ -10,9 +10,7 @@
 3.一些小细节效果改善
 
 ```
-<div>
-<iframe src="src/img/v2.0-1.gif" style="width:530px;height:560px" frameborder=0 >
-</div>
+  ![Image of Yaktocat](/src/img/v2.0-1.gif)
 
 ---
 
@@ -23,10 +21,10 @@
 2. 评价框增加悬浮效果,部分效果优化
 
 ```
-<figure style="display:flex">
+<div style="display:flex">
 <img src="src/img/v1.1-1.png" height="400px">
 <img src="src/img/v1.1-2.png" height="400px">
-</figure>
+</div>
 
 ---
 
