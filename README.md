@@ -7,7 +7,7 @@
 2. 评价框增加悬浮效果,部分效果优化
 
 ```
-<figure>
+<figure style="display:flex">
 <img src="src/img/v1.1-1.png" height="400px">
 <img src="src/img/v1.1-2.png" height="400px">
 </figure>
