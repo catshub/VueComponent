@@ -1,6 +1,9 @@
 <template>
     <div class="container">
-        <div class="comment-main">
+        <div class="start">
+            <button class="myBnt" @click="show=true">评价</button>
+        </div>
+        <div class="comment-main" :class="{'showComment':show}">
             <div class="main">
                 <header class="basic">
                     <h2> 评价 </h2>
@@ -14,16 +17,17 @@
                 </div>
                 <footer class="basic">
                     <textarea type="textArea" placeholder="详细评价..."></textarea>
-                    <button class="myBnt">提交</button>
+                    <button class="myBnt" @click="show=false">提交</button>
                 </footer>
             </div>
         </div>
+        <div class="overlay"></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "comment-vue",//什么用？
+    name: "comment-vue",
     props: ['items'],
     data() {
         return { show: false } //()=>( {isFunc:"false"} )
@@ -37,19 +41,36 @@ export default {
     padding: 0;
 }
 
+.start {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .comment-main {
+    visibility: hidden;
     position: fixed;
     z-index: 10;
     top: 50%;
     left: 50%;
     width: 400px;
     transform: translate(-50%,-50%);
-    border:1px #0090d3 solid;
+    perspective: 1000px;
 }
 
 .main {
     background: white;
     border-radius: 10px;
+}
+
+.showComment .main {
+    opacity: 1;
+    transform: rotateY(0);
+}
+
+.showComment {
+    visibility: visible;
 }
 
 header {
@@ -65,6 +86,20 @@ header {
     /* background: white; */
     margin: 20px;
     /* padding:20px; */
+}
+
+.showComment~.overlay {
+    visibility: visible;
+}
+
+.overlay {
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .basic {
@@ -104,7 +139,6 @@ footer textarea {
     color: white;
     width: 100px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
 }
 
 .myBnt:active {
