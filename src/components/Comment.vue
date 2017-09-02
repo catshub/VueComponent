@@ -60,8 +60,12 @@ export default {
 }
 
 .main {
+    opacity: 0;
+    transform: rotateY(-70deg);
+    /* rotateY和translateX会导致另一个失效 */
     background: white;
     border-radius: 10px;
+    transition: 0.7s;
 }
 
 .showComment .main {
@@ -89,10 +93,13 @@ header {
 }
 
 .showComment~.overlay {
+    opacity: 1;
     visibility: visible;
 }
 
 .overlay {
+    transition: 0.9s;
+    opacity: 0;
     visibility: hidden;
     background: rgba(0, 0, 0, 0.6);
     position: fixed;
@@ -139,6 +146,7 @@ footer textarea {
     color: white;
     width: 100px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition-duration: 0.5s;
 }
 
 .myBnt:active {
