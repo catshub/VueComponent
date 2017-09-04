@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>产品管理</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MetisMenu CSS -->
+	<link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+	<!-- DataTables CSS -->
+	<link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+	<!-- DataTables Responsive CSS -->
+	<link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<!-- newDialogCss -->
+	<link rel="stylesheet" href="fonts/style.css" />
+	<link rel="stylesheet" href="fonts/iconfont.css" />
+
+	<!-- Vue -->
+	<!-- <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
+<script src="http://cdn.bootcss.com/vue-resource/1.3.4/vue-resource.js"></script>  -->
+	<script src="js/vue.js"></script>
+
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<!-- 小屏幕显示三道横线的下拉菜单 -->	
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">
+					<i class="fa fa-smile-o fa-1x"></i>手机供应链管理平台</a>
+			</div>
+			<!-- /.navbar-header -->
+
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
+						<i class="fa fa-user fa-fw"></i>
+						<i class="fa fa-caret-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-alerts">
+						<li>
+							<a href="#">
+								<div>
+									<i class="fa fa-user fa-fw"></i> friends1 <span class="pull-right text-muted small">4 minutes ago</span>
+								</div>
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">
+								<div>
+									<i class="fa fa-user fa-fw"></i> friends2 <span class="pull-right text-muted small">12 minutes ago</span>
+								</div>
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">
+								<div>
+									<i class="fa fa-user fa-fw"></i> friends3 <span class="pull-right text-muted small">4 minutes ago</span>
+								</div>
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a class="text-center" href="#">
+                                <strong>See All Friends</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+						</li>
+					</ul>
+					<!-- /.dropdown-alerts -->
+				</li>
+			</ul>
+			<!-- /.navbar-top-links -->
+
+			<div class="navbar-default sidebar" role="navigation">
+				<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="side-menu">
+						<li><a href="#"><i class="fa fa-dashboard fa-fw"></i>
+								供应商管理<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li><a href="provider.html" id="provider_list">供应商列表及查询</a></li>
+							</ul>
+						</li>
+						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
+								产品管理<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li><a href="productLocal.html" id="product_list">产品查询</a></li>
+							</ul>
+						</li>
+						<li><a href="#"><i class="fa fa-table fa-fw"></i> 合同管理<span
+								class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li><a href="contract.html" id="contract_list">合同列表</a></li>
+								<li><a href="###" id="new_contract_list">新建合同</a></li>
+							</ul>
+						</li>
+						<li><a href="#"><i class="fa fa-wrench fa-fw"></i> 采购管理<span
+								class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li><a href="purchase.html" id="purchase_list">采购列表</a></li>
+							</ul>
+						</li>
+						<li><a href="#"><i class="fa fa-files-o fa-fw"></i> 销售管理<span
+								class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li><a href="sell.html" id="sell_list">销售记录</a></li>
+							</ul>
+						</li>
+						<li><a href="#"><i class="fa fa-files-o fa-fw"></i> 统计报表<span
+								class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li><a href="###">供应商供应量</a></li>
+								<li><a href="###">产品销量</a></li>
+								<li><a href="###">产品需求量</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /.sidebar-collapse -->
+			</div>
+			<!-- /.navbar-static-side -->
+		</nav>
+
+		<div id="page-wrapper">
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header">
+						产品列表
+						<button class="btn-my-new" @click="this.showParent = true">
+					<i class="icon iconfont myicon">&#xe60d;</i></button>
+					</h1>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">产品列表</div>
+						<!-- /.panel-heading -->
+						<div class="panel-body">
+							<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+								<thead>
+									<tr>
+										<th>产品id</th>
+										<th>产品名称</th>
+										<th>产品品牌</th>
+										<th>产品规格</th>
+										<th>库存</th>
+										<th>单价</th>
+										<th>入库时间</th>
+										<th>入库状态</th>
+										<th>退库时间</th>
+										<th>删除</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="(index,p) in productData">
+										<td>{{p.product_id}}</td>
+										<td>{{p.product_name}}</td>
+										<td>{{p.product_brand}}</td>
+										<td>{{p.product_standard}}</td>
+										<td>{{p.product_inventory}}</td>
+										<td>{{p.product_price}}</td>
+										<td>{{p.product_input_time}}</td>
+										<td>{{p.product_candition}}</td>
+										<td>{{p.product_out_time}}</td>
+										<td>
+											<button class="btn-danger" @click="deleteEntry(p.product_id)">
+											<i class="icon iconfont myicon" style="font-size:15px" >&#xe60c;</i></button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- /.table-responsive -->
+						</div>
+						<!-- /.panel-body -->
+					</div>
+					<!-- /.panel -->
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+
+			<div id="appall">
+				<!-- app -->
+				<div id="app">
+					<modal-dialog v-bind:showson.sync="showParent">
+						<header class="dialog-header" slot="header">
+							<h1 class="dialog-title">增加入库产品</h1>
+						</header>
+						<div class="dialog-body" slot="body">
+							<div class="form-group">
+								<label>产品名称</label>
+								<input type="text" v-model="item.productName" />
+							</div>
+
+							<div class="form-group">
+								<label>产品品牌</label> <input type="text" v-model="item.productBrand" />
+							</div>
+
+							<div class="form-group">
+								<label>产品规格</label>
+								<input type="text" v-model="item.productStandard" />
+							</div>
+
+							<div class="form-group">
+								<label>库存</label>
+								<input type="text" v-model="item.productInventory" />
+							</div>
+							<div class="form-group">
+								<label>单价</label>
+								<input type="text" v-model="item.productPrice" />
+							</div>
+							<div class="form-group">
+								<label>入库时间</label>
+								<input type="text" v-model="item.productInputTime" />
+							</div>
+							<div class="form-group">
+								<label>入库状态</label>
+								<input type="text" v-model="item.productCandition" />
+							</div>
+							<div class="form-group">
+								<label>退库时间</label>
+								<input type="text" v-model="item.productOutTime" />
+							</div>
+
+							<div class="form-group">
+								<label></label>
+								<button @click="createNew">保存</button>
+							</div>
+						</div>
+					</modal-dialog>
+				</div>
+				<!-- app -->
+			</div>
+			<!-- appall-->
+
+			<!-- template -->
+			<template id="dialog-template">
+				<div class="dialogs">
+					<div class="dialog" v-bind:class="{ 'dialog-active': showson }">
+						<div class="dialog-content">
+							<div class="close rotate">
+								<span class="iconfont icon-close" @click="close"></span>
+							</div>
+							<slot name="header"></slot>
+							<slot name="body"></slot>
+							<slot name="footer"></slot>
+						</div>
+					</div>
+					<div class="dialog-overlay"></div>
+				</div>
+			</template>
+			<!-- template -->
+			
+		</div>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+	<!-- DataTables JavaScript -->
+	<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+	<!--entries-->
+	<script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+	<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="../dist/js/sb-admin-2.js"></script>
+
+	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+	<script>
+		Vue.component('modal-dialog', {
+			template: '#dialog-template',
+			props: ['showson'],
+			methods: {
+				close: function () {
+					this.showson = false
+				}
+			}
+		})
+	</script>
+
+	<!-- var productLocal=[] 本地json数据 -->
+	<script src="json/productLocal.js" ></script>
+
+	<script type="text/javascript">
+		//Vue.http.options.emulateJSON = true;
+		var vm = new Vue({
+			el: "#wrapper",
+			data: {
+				productData: "",
+				showParent: false,
+				item: {}			
+			},
+		/* 	data(){    //根vue实例data可以是函数,组件里必需是函数
+				return {
+				productData: "",
+				showParent: false,
+				item: {}
+			}, */
+			created: function () {
+				this.updateLocal();
+				//init : this.updateLocal is not a function
+			},
+			methods: {
+				updateLocal: function () {
+					//alert(typeof(productLocal)); //object
+					//console.log(JSON.stringify(productLocal)); //string
+					this.productData = productLocal;//object
+				},
+				updatedata: function () {
+					$.ajax({
+						type: "POST",
+						url: "http://localhost:8080/supply_chain/product/productlist",
+						success: function (data) {
+							vm.productData = data;
+						},
+						error: function (err) {
+							alert(err);
+						}
+					});
+				},
+				createNew: function () {
+					var vm = this;
+					$.ajax({
+						type: "POST",
+						contentType: "application/json;charset=utf-8",
+						data: JSON.stringify(vm.item),
+						url: "http://localhost:8080/supply_chain/product/addproduct",
+						success: function (data) {
+							alert(data);
+						},
+						error: function (err) {
+							alert(err);
+						}
+					});
+					vm.$set('item', {});
+					this.showParent = false;
+					$(function () {
+						setTimeout(function () {
+							vm.updatedata();
+							//$("[hideyou]").hide();
+						}, 500)
+					})
+				},
+				deleteEntry: function (deleteId) {
+					var d = { "productId": deleteId };
+					$.ajax({
+						type: "POST",
+						contentType: "application/json;charset=utf-8",
+						data: JSON.stringify(d),
+						url: "http://localhost:8080/supply_chain/product/deleteproduct",
+						success: function (data) {
+							//alert(data);							
+							setTimeout(vm.updatedata(), 2000);							
+						},
+						error: function (err) {
+							alert(err);
+						}
+					});
+				}
+			}
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			//$("[hideyou]").hide();
+			$('#dataTables-example').DataTable({
+				responsive: true
+			});
+		});
+	</script>
+
+</body>
+
+</html>

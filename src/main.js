@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   //router,
-  data: {itemsP:["因素1","因素2","因素3","因素4","因素5"]} ,//评价因素
+  data: {itemsP:["产品质量好","服务态度好","快递速度给力","价格便宜","售后服务好"]} ,//评价因素
   //template: '<comment :items="itemsP"><comment>',
   components: { Comment }
 })

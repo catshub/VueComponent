@@ -1,23 +1,33 @@
 <template>
     <div class="container">
         <div class="start">
-            <button class="myBnt" @click="show=true">评价</button>
+            <button class="myBnt" @click="show=true">
+                <i class="iconfont icon-pingjia"></i>
+            </button>
         </div>
         <div class="comment-main" :class="{'showComment':show}">
             <div class="main">
                 <header class="basic">
                     <h2> 评价 </h2>
                 </header>
+                <div class="star">
+                    <span v-for="n in 5" :key="n" class="iconfont" :class="{'icon-star':!stars[n],'icon-staring':stars[n]}"></span>
+                </div>
+                <div class="star2">
+                    <span v-for="n in 5" :key="n" class="iconfont" @click="stars2check(n)" :class="{'icon-star':!stars2[n],'icon-staring':stars2[n]}"></span>
+                </div>
                 <div class="content">
                     <ul class="basic">
-                        <li v-for="(item,index) in items" :key="index" class="factor">
+                        <li v-for="(item,index) in items" :key="index" class="factor" @click="$set(focused,index,!focused[index])" :class="{'focused':focused[index]}" >
                             {{item}}
                         </li>
                     </ul>
                 </div>
                 <footer class="basic">
-                    <textarea type="textArea" placeholder="详细评价..."></textarea>
-                    <button class="myBnt" @click="show=false">提交</button>
+                    <textarea type="textArea" v-model="commentText" placeholder="详细评价..."></textarea>
+                    <button class="myBnt" @click="show=false">
+                        <i class="iconfont icon-gou"></i>
+                    </button>
                 </footer>
             </div>
         </div>
@@ -26,11 +36,44 @@
 </template>
 
 <script>
+import '../iconfont/myicon/icon-1/iconfont.css' /* icon */
 export default {
     name: "comment-vue",
     props: ['items'],
-    data() {
-        return { show: false } //()=>( {isFunc:"false"} )
+    data() {        //()=>( {isFunc:"false"} )
+        return { 
+            show: false,
+            focused:[],
+            commentText:"",
+            stars:[],
+            stars2:[]
+            } 
+    },
+    watch:{
+        focused:function(){
+            // console.log(this.items);
+            this.stars=[];
+            var i=0;
+            for(let n=0;n<this.items.length;n++){
+                if(this.focused[n]==true)
+                    ++i;                
+            }           
+            for(let m=1;m<=(i/this.items.length*5);m++) 
+                this.stars[m]=true;
+        }
+    },
+    methods:{
+        stars2check:function(n){
+            this.stars2=[];
+            while(n--){
+                this.$set(this.stars2,n+1,true);
+            }
+        }
+        /* focusedChange:function (index){
+            // console.log(this.focused[index],!this.focused[index],!!this.focused[index]);
+            var state=this.focused[index]==true?false:true;
+            this.$set(this.focused,index,state);
+        } */ //被替代  : @click="$set(focused,index,!focused[index])"
     }
 }
 </script>
@@ -40,14 +83,19 @@ export default {
     margin: 0;
     padding: 0;
 }
-
 .start {
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
-
+.star,.star2 {
+    display: flex;
+     justify-content: center;
+    flex-wrap: wrap;
+    font-size: 2em;
+    margin:5px
+}
 .comment-main {
     visibility: hidden;
     position: fixed;
@@ -55,7 +103,7 @@ export default {
     top: 50%;
     left: 50%;
     width: 400px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     perspective: 1000px;
 }
 
@@ -83,12 +131,12 @@ header {
     padding: 10px;
     color: white;
     border-radius: 0 0 5px 5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .content {
     /* background: white; */
-    margin: 20px;
+    margin: 25px 0 10px 0;
     /* padding:20px; */
 }
 
@@ -112,27 +160,45 @@ header {
 .basic {
     display: flex;
     justify-content: center;
-    font-size: 1em;
+    /* font-size: 1em; */
     flex-wrap: wrap;
 }
 
 li.factor {
     display: inline-block;
-    border: 1px solid;
-    padding: 10px;
-    margin: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    color:rgba(0,0,0,0.6);
+    padding: 5px 10px;
+    margin: 0 10px 10px 10px;
+    font-size: 0.9em;
     border-radius: 5px;
+    transition: 0.5s;
 }
-
+.factor.focused {
+    color:#0090D3;
+    border-color:#0090d3;
+}
+.factor:hover {
+    cursor:pointer;/* 光标 */
+    opacity: 0.9;
+    box-shadow: 0 2px 2px 0 rgba(181, 50, 85, 0.3);
+}
 footer textarea {
     width: 80%;
     height: 80px;
-    font-size: 0.8em;
-    resize:none;
+    font-size: 1.1em;
+    color:rgba(0,0,0,0.6);
+    resize: none;
     /* overflow-y: hidden; */
-    outline-color:#0090d3;
-    padding:5px;
-    /* margin: 20px; */
+    outline-color: #0090d3;
+    padding: 5px;
+    /* margin-top: 20px; */
+}
+
+.start .myBnt {
+    padding: 7px 10px;
+    font-size: 2em;
+    width: 60px;
 }
 
 .myBnt {
@@ -144,7 +210,7 @@ footer textarea {
     font-size: 20px;
     outline: none;
     color: white;
-    width: 100px;
+    width: 80px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     transition-duration: 0.5s;
 }
@@ -156,7 +222,7 @@ footer textarea {
 
 .myBnt:hover {
     /* padding-right: 10px; */
-    /*cursor:not-allowed;光标*/
+    cursor:pointer;/* 光标 */
     opacity: 0.9;
     box-shadow: 0 7px 12px 0 rgba(0, 0, 0, 0.5);
 }
