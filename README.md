@@ -1,14 +1,15 @@
 ## 本项目为Vue单文件组件开发,此组件为常用评价组件.
----
-
 ### v3.0 *2017/09/04*
 ```
 1. icon全面替换,蓝色系主题
+
 2. 增加评价star数动态渲染
+
   2.1 第一排star:由评价因素数决定,5颗星按百分比渲染
+  
   2.2 第二排star:正常模式,手动选择星级
 ```
-  ![Image of Yaktocat](/src/img/v3.0-1.gif)
+<img src="src/img/v3.0-1.gif" height="400px">
 
 ---
 
@@ -20,7 +21,7 @@
 
 3.一些小细节效果改善
 ```
-  ![Image of Yaktocat](/src/img/v2.0-1.gif)
+<img src="src/img/v2.0-1.gif" height="400px">
 
 ---
 
