@@ -108,17 +108,27 @@ export default {
     font-size: 2em;
     margin: 5px
 }
-
+.container {
+    display:flex;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+}
 .comment-main {
     visibility: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
+    margin:auto;
+    width:400px;
     z-index: 100;
-    transform: translate(-50%, -50%);
     perspective: 1000px;
 }
+@media (max-width:500px){
+    .comment-main {
+        /* width:80vw; */
+        margin:auto 10vw;
+    }
+} 
 
 .main {
     opacity: 0;
