@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <!-- <div>{{commentText}}</div> -->
         <div class="start">
             <button class="myBnt" @click="show=true">
                 <i class="iconfont icon-pingjia"></i>
@@ -28,8 +29,8 @@
                 </div>
                 <footer class="basic">
                     <!-- 文字评价 -->
-                    <textarea type="textArea" v-model="commentText" placeholder="详细评价..."></textarea>
-                    <button class="myBnt" @click="show=false">
+                    <textarea type="textArea" placeholder="详细评价..." v-model="commentText"></textarea>
+                    <button class="myBnt" @click="show=false"><!-- 保留评价记录 -->
                         <i class="iconfont icon-gou"></i>
                     </button>
                 </footer>
@@ -111,10 +112,10 @@ export default {
 .comment-main {
     visibility: hidden;
     position: fixed;
-    z-index: 10;
     top: 50%;
     left: 50%;
     width: 400px;
+    z-index: 10;
     transform: translate(-50%, -50%);
     perspective: 1000px;
 }
@@ -125,7 +126,7 @@ export default {
     /* rotateY和translateX会导致另一个失效 */
     background: white;
     border-radius: 10px;
-    transition: 0.7s;
+    transition: 0.6s;
 }
 
 .showComment .main {
@@ -135,6 +136,7 @@ export default {
 
 .showComment {
     visibility: visible;
+    /* z-index:100; */
 }
 
 header {
@@ -158,7 +160,7 @@ header {
 }
 
 .overlay {
-    transition: 0.9s;
+    transition: 0.7s;
     opacity: 0;
     visibility: hidden;
     background: rgba(0, 0, 0, 0.6);
@@ -167,6 +169,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 9;
 }
 
 .basic {
@@ -187,7 +190,7 @@ li.factor {
     transition: 0.5s;
 }
 
-.factor.focused {
+li.factor.focused {
     color: #0090D3;
     border-color: #0090d3;
 }
@@ -228,7 +231,7 @@ footer textarea {
     color: white;
     width: 80px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    transition-duration: 0.5s;
+    transition: 0.5s;
 }
 
 .myBnt:active {
