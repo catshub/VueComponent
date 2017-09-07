@@ -30,7 +30,8 @@
                 <footer class="basic">
                     <!-- 文字评价 -->
                     <textarea type="textArea" placeholder="详细评价..." v-model="commentText"></textarea>
-                    <button class="myBnt" @click="show=false"><!-- 保留评价记录 -->
+                    <button class="myBnt" @click="show=false">
+                        <!-- 保留评价记录 -->
                         <i class="iconfont icon-gou"></i>
                     </button>
                 </footer>
@@ -106,29 +107,37 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     font-size: 2em;
-    margin: 5px
+    /* margin-bottom: 5px; */
 }
-.container {
-    display:flex;
+
+.comment-main {
+    visibility: hidden;
     position: absolute;
-    top:0;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    perspective: 1000px;
+}
+
+.container {
+    /* display:flex; */
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
-    bottom:0;
+    bottom: 0;
 }
-.comment-main {
+
+
+/* .comment-main {
     visibility: hidden;
     margin:auto;
     width:400px;
     z-index: 100;
     perspective: 1000px;
-}
-@media (max-width:500px){
-    .comment-main {
-        /* width:80vw; */
-        margin:auto 10vw;
-    }
-} 
+} */
 
 .main {
     opacity: 0;
@@ -155,12 +164,12 @@ header {
     padding: 10px;
     color: white;
     border-radius: 0 0 5px 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .content {
     /* background: white; */
-    margin: 25px 0 10px 0;
+    margin: 15px 0 10px 0;
     /* padding:20px; */
 }
 
@@ -239,7 +248,7 @@ footer textarea {
     font-size: 20px;
     outline: none;
     color: white;
-    width: 80px;
+    width: 60px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     transition: 0.5s;
 }
@@ -255,5 +264,42 @@ footer textarea {
     /* 光标 */
     opacity: 0.9;
     box-shadow: 0 7px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width:500px) {
+    .comment-main {
+        width: 80vw;
+        margin-top: 10px;
+    }
+    footer .myBnt {
+        padding: 5px 5px;
+        /* font-size: 0.8em; */
+        width: 60px;
+        margin: 7px 20px
+    }
+    footer textarea {
+        height: 10vw;
+        min-height: 40px;
+        /* font-size: 0.9em; */
+    }
+    footer .mybnt,
+    footer textarea {
+        font-size: 0.9em
+    }
+    header h2 {
+        font-size: 1.3em;
+        padding: 0;
+        margin: 0;
+    }
+    header {
+        padding: 5px
+    }
+    li.factor,
+    .content {
+        margin: 5px;
+    }
+    .star {
+        margin-top: -10px;
+    }
 }
 </style>
