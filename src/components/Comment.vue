@@ -20,7 +20,7 @@
                     <span v-for="n in 5" :key="n" class="iconfont" @click="stars2check(n)" :class="{'icon-star':!stars2[n],'icon-staring':stars2[n]}"></span>
                 </div>
                 <div class="content">
-                    <!-- 评价因素 -->
+                    <!-- 评价因素 vue动态渲染，外部接口-->
                     <ul class="basic">
                         <li v-for="(item,index) in items" :key="index" class="factor" @click="$set(focused,index,!focused[index])" :class="{'focused':focused[index]}">
                             {{item}}
