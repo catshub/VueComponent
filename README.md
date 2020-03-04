@@ -1,4 +1,5 @@
 ## 本项目为Vue单文件组件开发,此组件为常用评价组件.
+[http://league.xhuyq.me/vue-comment](http://league.xhuyq.me/vue-comment)
 
 ### v3.4 *2017/09/14*
 ```
